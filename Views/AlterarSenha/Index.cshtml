@@ -1,0 +1,52 @@
+﻿@model AlterarSenhaModel
+@{
+    ViewData["Title"] = "Alterar Senha";
+}
+<br />
+<div class="text-center">
+    <br />
+    <h1 class="display-4">Alterar Senha</h1>
+</div>
+<br />
+
+@if (TempData["MensagemSucesso"] != null)
+{
+                <div class="alert alert-success" role="alert">
+                        <button type="button" class="btn btn-outline-danger btn-sm close-alert close-button" arial-label="Close">X</button>
+        @TempData["MensagemSucesso"]
+                </div>        
+}
+@if (TempData["MensagemErro"] != null)
+{
+                <div class="alert alert-danger" role="alert">
+                    <button type="button" class="btn btn-outline-danger btn-sm close-alert close-button" arial-label="Close">X</button>
+        @TempData["MensagemErro"]
+                </div>        
+}
+
+<br />
+<div>
+    <form asp-controller="AlterarSenha" asp-action="Alterar" method="post">
+
+        <div class="form-group">
+            <label for="senhaAtual" class="form-label">Senha atual</label>
+            <input type="password" asp-for="SenhaAtual" class="form-control" placeholder="Digite a senha atual">
+            @Html.ValidationMessageFor(x => x.SenhaAtual)
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="novaSenha" class="form-label">Nova Senha</label>
+            <input type="password" asp-for="novaSenha" class="form-control" placeholder="Digite a nova senha">
+            @Html.ValidationMessageFor(x => x.novaSenha)
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="confirmarNovaSenha" class="form-label">Confirme a senha</label>
+            <input type="password" asp-for="ConfirmarNovaSenha" class="form-control" placeholder="Confirme a nova senha">
+            @Html.ValidationMessageFor(x => x.ConfirmarNovaSenha)
+        </div>
+        <br />
+        <button type="submit" class="btn btn-success">Alterar</button>
+        <a class="btn btn-danger" role="button" asp-action="Index" asp-controller="Home">Cancelar</a>
+    </form>
+</div>

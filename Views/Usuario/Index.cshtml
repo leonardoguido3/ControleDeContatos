@@ -1,0 +1,107 @@
+﻿@model List<UsuarioModel>
+@{
+    ViewData["Title"] = "Usuários";
+}
+
+<br />
+<div class="text-center">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a asp-action="Criar" asp-controller="Usuario" role="button" class="btn btn-success">Adicionar</a>
+    </div>
+    <br />
+    @if (TempData["MensagemSucesso"] != null)
+    {
+            <div class="alert alert-success" role="alert">
+                    <button type="button" class="btn btn-outline-danger btn-sm close-alert close-button" arial-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+            </div>        
+    }
+    @if (TempData["MensagemErro"] != null)
+    {
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="btn btn-outline-danger btn-sm close-alert close-button" arial-label="Close">X</button>
+            @TempData["MensagemErro"]
+            </div>        
+    }
+
+    <br />
+    <h1 class="display-4">Lista de Usuarios</h1>
+    <br />
+    <table id="table-usuarios" style="width:100%" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Login</th>
+                <th scope="col">Contatos T.</th>
+                <th scope="col">Data Cadastro</th>
+                <th scope="col">Data Atualização</th>
+                <th scope="col">Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (UsuarioModel usuario in Model)
+                {
+                            <tr>
+                                <td>@usuario.Nome</td>
+                                <td>@usuario.Email</td>
+                                <td>@usuario.Login</td>
+                                <td>
+                                    <a style="border-radius: 22px;" role="button" class="btn btn-outline-success btn-total-contatos" href="javascript:">
+                                        @(usuario.Contatos != null && usuario.Contatos.Any() ? usuario.Contatos.Count() : 0)
+                                    </a>
+                                </td>
+                                <td>@usuario.DataCadastro</td>
+                                <td>@usuario.DataAtualizacao</td>
+                                <td>
+                                    <a role="button" class="btn btn-primary btn-sm" asp-route-id="@usuario.Id" asp-action="Editar" asp-controller="Usuario">Editar</a>
+                                    <a role="button" class="btn btn-danger btn-sm" asp-route-id="@usuario.Id" asp-action="ApagarConfirmacao" asp-controller="Usuario">Apagar</a>
+                                </td>
+                            </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div id="modalContatosUsuario" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            <div class="modal-body">
+                <table id="table-contatos" style="width:100%" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+
+                <th scope="col">Nome</th>
+                <th scope="col">Bairro</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Celular</th>
+                <th scope="col">Serviço</th>
+                <th scope="col">Observações</th>
+            </tr>
+        </thead>
+        <tbody>
+                           
+                            <tr>
+
+                                <td>contato.Nome</td>
+                                <td>contato.Bairro</td>
+                                <td>contato.Cidade</td>
+                                <td>contato.Telefone</td>
+                                <td>contato.Tipo</td>
+                                <td>Observacao</td>
+                            </tr>
+
+        </tbody>
+    </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-close" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

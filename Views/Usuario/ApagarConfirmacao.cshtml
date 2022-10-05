@@ -1,0 +1,14 @@
+﻿@model UsuarioModel
+@{
+    ViewData["Title"] = "Confirma exclusão";
+}
+
+<div class="text-center">
+    <h3 class="display-6">Realmente deseja apagar o usuario <strong>@Model.Nome</strong> ? </h3>
+</div>
+<br />
+<div>
+    <a asp-action="Apagar" asp-controller="Usuario" asp-route-id="@Model.Id" class="btn btn-success d-grid gap-2" role="button">Confirmar Exclusão</a>
+    <br />
+    <a asp-action="Index" asp-controller="Usuario" class="btn btn-danger d-grid gap-2" role="button">Cancelar Exclusão</a>
+</div>

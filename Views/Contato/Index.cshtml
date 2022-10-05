@@ -1,0 +1,66 @@
+﻿@model List<ContatoModel>
+@using ControleDeContatos.Enums
+@{
+    ViewData["Title"] = "Contatos";
+}
+
+<br />
+<div class="text-center">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a asp-action="Criar" asp-controller="Contato" role="button" class="btn btn-success">Adicionar</a>
+    </div>
+    <br />
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+                <button type="button" class="btn btn-outline-danger btn-sm close-alert close-button" arial-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>        
+    }
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-outline-danger btn-sm close-alert close-button" arial-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>        
+    }
+
+    <br />
+    <h1 class="display-4">Lista de Contatos</h1>
+    <br />
+    <table id="table-contatos" style="width:100%" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Bairro</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Celular</th>
+                <th scope="col">Serviço</th>
+                <th scope="col">Observações</th>
+                <th scope="col">Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (ContatoModel contato in Model)
+                {
+                    <tr>
+                        <th scope="row">@contato.Id</th>
+                        <td>@contato.Nome</td>
+                        <td>@contato.Bairro</td>
+                        <td>@contato.Cidade</td>
+                        <td>@contato.Telefone</td>
+                        <td>@contato.Tipo</td>
+                        <td>@contato.Observacao</td>
+                        <td>
+                            <a role="button" class="btn btn-primary btn-sm" asp-route-id="@contato.Id" asp-action="Editar" asp-controller="Contato">Editar</a>
+                            <a role="button" class="btn btn-danger btn-sm" asp-route-id="@contato.Id" asp-action="ApagarConfirmacao" asp-controller="Contato">Apagar</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

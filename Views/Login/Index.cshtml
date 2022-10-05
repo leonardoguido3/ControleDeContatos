@@ -1,0 +1,49 @@
+﻿@model LoginModel
+@{
+    Layout = "_LayoutDeslogado";
+    ViewData["Tittle"] = "Login";
+}
+
+
+
+@if (TempData["MensagemSucesso"] != null)
+{
+            <div class="alert alert-success" role="alert">
+                    <button type="button" class="btn btn-outline-danger btn-sm close-alert close-button" arial-label="Close">X</button>
+        @TempData["MensagemSucesso"]
+            </div>        
+}
+@if (TempData["MensagemErro"] != null)
+{
+                <div class="alert alert-danger" role="alert">
+                    <button type="button" class="btn btn-outline-danger btn-sm close-alert close-button" arial-label="Close">X</button>
+        @TempData["MensagemErro"]
+                </div>        
+}
+
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="~/img/logo_entrar.png" id="icon" alt="Max Net Logo" />
+    </div>
+
+    <!-- Login Form -->
+    <form asp-action="Entrar" asp-controller="Login" method="post">
+      <input type="text" id="login" asp-for="Login" class="fadeIn second" name="login" placeholder="login">  
+      <input type="password" id="password" asp-for="Senha" class="fadeIn third" name="senha" placeholder="senha">     
+      <input type="submit" class="fadeIn fourth" value="Entrar">
+    </form>
+        @Html.ValidationMessageFor(x => x.Login)
+        <br />
+        @Html.ValidationMessageFor(x => x.Senha)
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" asp-action="RedefinirSenha" asp-controller="Login">Esqueceu a senha?</a>
+    </div>
+        
+  </div>
+</div>
