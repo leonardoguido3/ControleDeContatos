@@ -1,0 +1,36 @@
+﻿@model List<ContatoModel>
+
+<section id="popup-contato-usuario">    
+    <table id="table-contatos-usuario" style="width:100%" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Bairro</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Celular</th>
+                <th scope="col">Serviço</th>
+                <th scope="col">Observações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var contato in Model)
+                {
+                    <tr>
+                        <td>@contato.Nome</td>
+                        <td>@contato.Bairro</td>
+                        <td>@contato.Cidade</td>
+                        <td>@contato.Telefone</td>
+                        <td>@contato.Tipo</td>
+                        <td>@contato.Observacao</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="odd"><td valign="top" colspan="6">Nenhum contato encontrado</td></tr>
+            }
+        </tbody>
+    </table>
+</section>

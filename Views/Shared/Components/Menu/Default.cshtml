@@ -1,36 +1,28 @@
 ﻿@model UsuarioModel
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
 
 
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Olá, @Model.Nome</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Contato" asp-action="Index">Contatos</a>
-                        </li>
-                        
-                        @if (Model.Perfil == ControleDeContatos.Enums.PerfilEnum.Admin)
-                        {
-                             <li class="nav-item">
-                                 <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">Usuários</a>
-                             </li>
-                        }
-                        
-                    </ul>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a role="button" class="nav-link me-md-2" id="sair" asp-area="" asp-controller="AlterarSenha" asp-action="Index">Alterar Senha</a>
-                        <a role="button" class="nav-link me-md-2" id="sair" asp-area="" asp-controller="Login" asp-action="Sair">Sair</a>
-                    </div>
-                </div>
+<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Olá, @Model.Nome</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+    <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Contato" asp-action="Index">Contatos</a>
+        </li>                       
+        @if (Model.Perfil == ControleDeContatos.Enums.PerfilEnum.Admin)
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">Usuários</a>
+            </li>
+        }                
+    </ul>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a role="button" class="nav-link me-md-2" id="sair" asp-area="" asp-controller="AlterarSenha" asp-action="Index">Alterar Senha</a>
+        <a role="button" class="nav-link me-md-2" id="sair" asp-area="" asp-controller="Login" asp-action="Sair">Sair</a>
+    </div>
+</div>
                 

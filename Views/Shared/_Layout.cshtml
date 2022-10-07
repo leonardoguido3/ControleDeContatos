@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="~/ControleDeContatos.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" asp-append-version="true" />
-
-
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -20,15 +19,18 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+
+    <section id="conteudo">
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </section>
 
     <footer class="border-top footer text-muted text-center">
         <div class="container">
-            &copy; @DateTime.Now.ToString("dd/MM/yyyy") - Controle de Contatos | <strong>Guido Soluções</strong>
+            &copy; @DateTime.Now.ToString("dd/MM/yyyy") - Controle de Contatos | <a href="https://leonardoguido.tk"><strong>Guido Soluções</strong></a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -38,5 +40,6 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

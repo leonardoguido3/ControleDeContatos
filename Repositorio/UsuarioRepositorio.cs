@@ -28,11 +28,11 @@ namespace ControleDeContatos.Repositorio
         public UsuarioModel AlterarSenha(AlterarSenhaModel alterarSenhaModel)
         {
             UsuarioModel usuarioDB = ListarPorId(alterarSenhaModel.Id);
-            if(usuarioDB == null) throw new Exception("Houve um erro na atualização da senha, o usuario não foi encontrado!");
+            if (usuarioDB == null) throw new Exception("Houve um erro na atualização da senha, o usuario não foi encontrado!");
 
-            if(!usuarioDB.SenhaValida(alterarSenhaModel.SenhaAtual)) throw new Exception("Senha atual não confere, por favor, verifique os dados!");
+            if (!usuarioDB.SenhaValida(alterarSenhaModel.SenhaAtual)) throw new Exception("Senha atual não confere, por favor, verifique os dados!");
 
-            if(usuarioDB.SenhaValida(alterarSenhaModel.novaSenha)) throw new Exception("A nova senha precisa ser diferente da atual!");
+            if (usuarioDB.SenhaValida(alterarSenhaModel.novaSenha)) throw new Exception("A nova senha precisa ser diferente da atual!");
 
             usuarioDB.SetNovaSenha(alterarSenhaModel.novaSenha);
             usuarioDB.DataAtualizacao = DateTime.Now;

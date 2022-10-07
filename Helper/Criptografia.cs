@@ -12,7 +12,7 @@ namespace ControleDeContatos.Helper
             var array = encoding.GetBytes(valor);
 
             array = hash.ComputeHash(array);
-            
+
             var strHexa = new StringBuilder();
 
             foreach (var item in array)

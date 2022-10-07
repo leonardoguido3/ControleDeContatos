@@ -3,10 +3,12 @@
     margin: 0;
 }
 
+/* Notificação de erro de inclusão da informação */
 .field-validation-error {
     color: #e01d1d;
 }
 
+/* Fechar o popup de informação de cadastro */
 .close-alert {
     position: absolute;
     right: -10px;
@@ -14,9 +16,5 @@
     border-radius: 18px;
     width: 30px;
     height: 30px;
-}
-
-#sair {
-    border-radius: 12px;
 }
 

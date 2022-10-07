@@ -1,6 +1,5 @@
 ﻿using ControleDeContatos.Models;
 using Newtonsoft.Json;
-using System.Text.Json.Serialization;
 
 namespace ControleDeContatos.Helper
 {

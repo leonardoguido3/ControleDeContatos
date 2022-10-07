@@ -1,6 +1,5 @@
 ﻿using ControleDeContatos.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Newtonsoft.Json;
 
 namespace ControleDeContatos.ViewComponents

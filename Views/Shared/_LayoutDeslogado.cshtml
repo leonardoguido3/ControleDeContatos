@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="~/css/site-deslogado.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ControleDeContatos.styles.css" asp-append-version="true" />
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
-
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -23,16 +22,20 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+
+    <section id="conteudo">
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </section>
 
     <footer class="border-top footer text-muted text-center">
         <div class="container">
             &copy; @DateTime.Now.ToString("dd/MM/yyyy") - Controle de Contatos | <strong>Guido Soluções</strong>
         </div>
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

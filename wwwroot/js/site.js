@@ -1,13 +1,4 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-
-
-//Close botton alarm
-
-
-//Quando ele chamar o alert, vai esconder automaticamente em 2,5s
+﻿//Quando ele chamar o alert, vai esconder automaticamente em 2,5s
 $('.close-alert').ready(function () {
     setTimeout(function () {
         $('.alert').hide('hide');
@@ -24,11 +15,22 @@ $(document).ready(function () {
     getDatatable('#table-contatos');
     getDatatable('#table-usuarios');
 
-    $('btn-total-contatos').click(function () {
-        $('#modalContatosUsuario').modal();
-    })
+    $('.btn-total-contatos').click(function () {
+        var usuarioId = $(this).attr('usuario-id');
+
+        $.ajax({
+            type: 'GET',
+            url: '/Usuario/ListarContatosPorUsuarioId/' + usuarioId,
+            success: function (result) {
+                $("#listaContatosUsuario").html(result);
+                $('#modalContatosUsuario').modal();
+                getDatatable('#table-contatos-usuario');
+            }
+        });      
+    });
 })
 
+//Tradução do Datatables
 function getDatatable(id) {
     $(id).DataTable({
         "ordering": true,
@@ -59,4 +61,5 @@ function getDatatable(id) {
         }
     })
 };
+
 

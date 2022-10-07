@@ -4,25 +4,23 @@
     ViewData["Tittle"] = "Redefinir Senha";
 }
 
+<section id="tela-redefinicao">
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
 
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
-
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="~/img/logo_entrar.png" id="icon" alt="Max Net Logo" />
-    </div>
-
+            <div class="fadeIn first">
+                <img src="~/img/logo_entrar.png" id="icon" alt="Max Net Logo" />
+            </div>
     <!-- Login Form -->
-    <form asp-action="EnviarLinkParaRedefinirSenha" asp-controller="Login" method="post">
-      <input type="text" id="login" asp-for="Login" class="fadeIn second" name="login" placeholder="login">  
-      <input type="text" id="email" asp-for="Email" class="fadeIn third" name="email" placeholder="email">     
-      <input type="submit" class="fadeIn fourth" value="Redefinir">
-      <a class="btn btn-danger fadeIn fourth" id="cancel-rescue" role="button" asp-action="Index" asp-controller="Login">Cancelar</a>
-    </form>
-        @Html.ValidationMessageFor(x => x.Login)
-        <br />
-        @Html.ValidationMessageFor(x => x.Email)
-  </div>
-</div>
+            <form asp-action="EnviarLinkParaRedefinirSenha" asp-controller="Login" method="post">
+                <input type="text" id="login" asp-for="Login" class="fadeIn second" name="login" placeholder="login">  
+                <input type="text" id="email" asp-for="Email" class="fadeIn third" name="email" placeholder="email">     
+                <input type="submit" class="fadeIn fourth" value="Redefinir">
+                <a class="btn btn-danger fadeIn fourth" id="cancel-rescue" role="button" asp-action="Index" asp-controller="Login">Cancelar</a>
+            </form>
+            @Html.ValidationMessageFor(x => x.Login)
+            <br />
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+    </div>
+</section>

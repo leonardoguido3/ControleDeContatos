@@ -2,47 +2,50 @@
 @{
     ViewData["Title"] = "Cadastrar Contato";
 }
-<br />
-<div class="text-center">
+
+<section id="criar-contato">
+    <div class="text-center">
+        <br />
+        <h1 class="display-4">Cadastrar Contato</h1>
+    </div>
     <br />
-    <h1 class="display-4">Cadastrar Contato</h1>
-</div>
-<div>
-    <form asp-controller="Contato" asp-action="Criar" method="post">
-        <div class="form-group">
-            <label for="nome" class="form-label">Nome</label>
-            <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome">
-            @Html.ValidationMessageFor(x => x.Nome)
-        </div>
-        <br />
-        <div class="form-group">
-            <label for="bairro" class="form-label">Bairro</label>
-            <input type="text" asp-for="Bairro" class="form-control" placeholder="Digite o bairro">
-            @Html.ValidationMessageFor(x => x.Bairro)
-        </div>
-        <br />
-        <div class="form-group">
-            <label for="cidade" class="form-label">Cidade</label>
-            <input type="text" asp-for="Cidade" class="form-control" placeholder="Digite a cidade">
-            @Html.ValidationMessageFor(x => x.Cidade)
-        </div>
-        <br />
-        <div class="form-group">
-            <label for="telefone" class="form-label">Telefone</label>
-            <input type="tel" asp-for="Telefone" class="form-control" placeholder="(xx) xxxxx-xxxx">
-            @Html.ValidationMessageFor(x => x.Telefone)
-        </div>
-        <div class="form-group">
-            <label for="tipo" class="form-label">Serviço</label>
-            <input type="text" asp-for="Tipo" class="form-control" placeholder="Venda, Prospecção...">
-            @Html.ValidationMessageFor(x => x.Tipo)
-        </div>
-        <div class="mb-3">
-            <label for="relato" class="form-label">Observações</label>
-            <textarea asp-for="Observacao" class="form-control" rows="3"></textarea>
-        </div>
-        <br />
-        <button type="submit" class="btn btn-success">Adicionar</button>
-        <a class="btn btn-danger" role="button" asp-action="Index" asp-controller="Contato">Cancelar</a>
-    </form>
-</div>
+    <div>
+        <form asp-controller="Contato" asp-action="Criar" method="post">
+            <div class="form-group">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome">
+                @Html.ValidationMessageFor(x => x.Nome)
+            </div>
+        
+            <div class="form-group">
+                <label for="bairro" class="form-label">Bairro</label>
+                <input type="text" asp-for="Bairro" class="form-control" placeholder="Digite o bairro">
+                @Html.ValidationMessageFor(x => x.Bairro)
+            </div>
+        
+            <div class="form-group">
+                <label for="cidade" class="form-label">Cidade</label>
+                <input type="text" asp-for="Cidade" class="form-control" placeholder="Digite a cidade">
+                @Html.ValidationMessageFor(x => x.Cidade)
+            </div>
+        
+            <div class="form-group">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input type="tel" asp-for="Telefone" class="form-control" placeholder="(xx) xxxxx-xxxx">
+                @Html.ValidationMessageFor(x => x.Telefone)
+            </div>
+            <div class="form-group">
+                <label for="tipo" class="form-label">Serviço</label>
+                <input type="text" asp-for="Tipo" class="form-control" placeholder="Venda, Prospecção...">
+                @Html.ValidationMessageFor(x => x.Tipo)
+            </div>
+            <div class="mb-3">
+                <label for="relato" class="form-label">Observações</label>
+                <textarea asp-for="Observacao" class="form-control" rows="3"></textarea>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success">Adicionar</button>
+            <a class="btn btn-danger" role="button" asp-action="Index" asp-controller="Contato">Cancelar</a>
+        </form>
+    </div>
+</section>

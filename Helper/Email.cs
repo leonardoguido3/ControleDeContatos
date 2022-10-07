@@ -9,7 +9,7 @@ namespace ControleDeContatos.Helper
 
         public Email(IConfiguration configuration)
         {
-            _configuration = configuration; 
+            _configuration = configuration;
         }
 
         public bool Enviar(string email, string assunto, string mensagem)
@@ -33,7 +33,7 @@ namespace ControleDeContatos.Helper
                 mail.IsBodyHtml = true;
                 mail.Priority = MailPriority.High;
 
-                using(SmtpClient smtp = new SmtpClient(host, porta))
+                using (SmtpClient smtp = new SmtpClient(host, porta))
                 {
                     smtp.Credentials = new NetworkCredential(username, senha);
                     smtp.EnableSsl = true;

@@ -5,6 +5,7 @@ using System.Diagnostics;
 
 namespace ControleDeContatos.Controllers
 {
+    //Usuario precisa estar logado para ter acesso a esta funcionalidade
     [PaginaParaUsuarioLogado]
     public class HomeController : Controller
     {

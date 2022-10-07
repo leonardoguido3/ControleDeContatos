@@ -19,7 +19,8 @@ builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 builder.Services.AddScoped<ISessao, Sessao>();
 builder.Services.AddScoped<IEmail, Email>();
 
-builder.Services.AddSession(options => {
+builder.Services.AddSession(options =>
+{
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
