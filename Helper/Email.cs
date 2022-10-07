@@ -5,13 +5,16 @@ namespace ControleDeContatos.Helper
 {
     public class Email : IEmail
     {
+        //Injeção da IConfiguration para envio de email
         private readonly IConfiguration _configuration;
 
+        //Construtor do objeto
         public Email(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
+        //Metodo booleano, que recebe como parametro email, assunto, mensagem, capturamos da nossa AppSettingsJSON as informações do servidor de email, chamamos o MailMessage e construimos o metodo de envio
         public bool Enviar(string email, string assunto, string mensagem)
         {
             try

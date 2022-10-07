@@ -4,6 +4,7 @@ namespace ControleDeContatos.Models
 {
     public class ContatoModel
     {
+        //Modelo do banco de dados de contatos, com o objeto vindo do relacionamento com o usuario
         public int Id { get; set; }
         [Required(ErrorMessage = "Digite o nome do contato!")]
         public string Nome { get; set; }

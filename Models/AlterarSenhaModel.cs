@@ -4,6 +4,7 @@ namespace ControleDeContatos.Models
 {
     public class AlterarSenhaModel
     {
+        //Modelo do banco de dados de alteração de senha, onde é pego o ID atual, a antiga senha e comparado a nova senha
         public int Id { get; set; }
         [Required(ErrorMessage = "Digite a senha atual!")]
         public string SenhaAtual { get; set; }

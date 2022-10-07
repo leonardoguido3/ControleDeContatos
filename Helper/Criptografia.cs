@@ -5,6 +5,7 @@ namespace ControleDeContatos.Helper
 {
     public static class Criptografia
     {
+        //Metodo para gerar uma hash SHA1 de encriptação da senha de usuario
         public static string GerarHash(this string valor)
         {
             var hash = SHA1.Create();

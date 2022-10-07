@@ -6,6 +6,7 @@ namespace ControleDeContatos.Models
 {
     public class UsuarioModel
     {
+        //Modelo do banco de dados de usuarios, com uma lista virtual de contatos vindo do vinculo
         public int Id { get; set; }
         [Required(ErrorMessage = "Digite o nome do usuário!")]
         public string Nome { get; set; }
