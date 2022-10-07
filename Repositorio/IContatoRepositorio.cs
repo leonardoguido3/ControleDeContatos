@@ -4,6 +4,7 @@ namespace ControleDeContatos.Repositorio
 {
     public interface IContatoRepositorio
     {
+        //Lista de contratos a serem assinados pelo repositorio para realizar funções do CRUD Contato
         List<ContatoModel> BuscarTodos();
         List<ContatoModel> BuscarTodosIdUsuario(int usuarioId);
         ContatoModel ListarPorId(int id);
