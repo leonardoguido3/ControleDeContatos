@@ -4,6 +4,7 @@ using ControleDeContatos.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControleDeContatos.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20221010154246_CreateCidadeVinculo")]
+    partial class CreateCidadeVinculo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,11 +54,8 @@ namespace ControleDeContatos.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CidadeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Endereco")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("int");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -126,7 +125,9 @@ namespace ControleDeContatos.Migrations
                 {
                     b.HasOne("ControleDeContatos.Models.CidadeModel", "Cidade")
                         .WithMany("Contatos")
-                        .HasForeignKey("CidadeId");
+                        .HasForeignKey("CidadeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ControleDeContatos.Models.UsuarioModel", "Usuario")
                         .WithMany("Contatos")

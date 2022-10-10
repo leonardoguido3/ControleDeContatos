@@ -10,8 +10,6 @@ namespace ControleDeContatos.Models
         public string Nome { get; set; }
         [Required(ErrorMessage = "Digite o bairro do contato!")]
         public string Bairro { get; set; }
-        [Required(ErrorMessage = "Digite a cidade do contato!")]
-        public string Cidade { get; set; }
         [Required(ErrorMessage = "Digite o telefone do contato!")]
         [Phone(ErrorMessage = "O numero informado não é válido!")]
         public string Telefone { get; set; }
@@ -19,5 +17,8 @@ namespace ControleDeContatos.Models
         public string? Observacao { get; set; }
         public int? UsuarioId { get; set; }
         public UsuarioModel Usuario { get; set; }
+        public int? CidadeId { get; set; }
+        [Required(ErrorMessage = "Digite a cidade do contato!")]
+        public CidadeModel Cidade { get; set; }
     }
 }

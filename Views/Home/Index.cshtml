@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<CidadeModel>
+@{
     ViewData["Title"] = "Início";
 }
 
@@ -6,5 +7,31 @@
     <div class="text-center">
         <h1 class="display-4">Bem Vindo!</h1>
         <p>Sistema para controle de Contatos</p>
+    </div>
+    <div>
+
+        <table id="table-usuarios" style="width:100%" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+        {
+            foreach (CidadeModel cidade in Model)
+            {
+                
+                                <tr>
+                                    <td>
+                                        <a href="javascript:" class="btn btn-outline-success btn-total-contatos" data-bs-toggle="modal" data-bs-target="#modalContatosUsuario">
+                            @(cidade.Contatos != null && cidade.Contatos.Any() ? cidade.Contatos.Count() : 0) Contatos
+                                        </a>
+                                    </td>
+                                </tr>
+            }
+        }
+            </tbody>
+        </table>
     </div>
 </section>

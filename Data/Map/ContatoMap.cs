@@ -11,6 +11,7 @@ namespace ControleDeContatos.Data.Map
         {
             builder.HasKey(x => x.Id);
             builder.HasOne(x => x.Usuario);
+            builder.HasOne(x => x.Cidade);
         }
     }
 }

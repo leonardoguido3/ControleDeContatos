@@ -4,6 +4,7 @@ using ControleDeContatos.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControleDeContatos.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20221010182656_UpdateTableCity")]
+    partial class UpdateTableCity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,12 +53,15 @@ namespace ControleDeContatos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Cidade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("CidadeId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Endereco")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("EnderecoId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -77,7 +82,7 @@ namespace ControleDeContatos.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CidadeId");
+                    b.HasIndex("EnderecoId");
 
                     b.HasIndex("UsuarioId");
 
@@ -124,15 +129,17 @@ namespace ControleDeContatos.Migrations
 
             modelBuilder.Entity("ControleDeContatos.Models.ContatoModel", b =>
                 {
-                    b.HasOne("ControleDeContatos.Models.CidadeModel", "Cidade")
+                    b.HasOne("ControleDeContatos.Models.CidadeModel", "Endereco")
                         .WithMany("Contatos")
-                        .HasForeignKey("CidadeId");
+                        .HasForeignKey("EnderecoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ControleDeContatos.Models.UsuarioModel", "Usuario")
                         .WithMany("Contatos")
                         .HasForeignKey("UsuarioId");
 
-                    b.Navigation("Cidade");
+                    b.Navigation("Endereco");
 
                     b.Navigation("Usuario");
                 });
